@@ -1,59 +1,39 @@
-CollabSheet
-A real-time collaborative spreadsheet web application with Google Sign-in, live presence indicators, and formula support.
-🔗 Live Demo: collab-sheet-alpha.vercel.app
+# CollabSheet
 
-✨ Features
+A real-time collaborative spreadsheet web application built with plain JS/ES modules, powered by Supabase (Postgres, Auth, Realtime, Presence) and bundled using Vite.
 
-User Authentication — Sign in with Google or continue as a guest
-Real-time Collaboration — See other users' cursors and edits live
-Formula Support — Use formulas like =SUM(A1:A10), =A1+B1, and cell references
-Spreadsheet Grid — 50 rows × 26 columns with keyboard navigation
-Document Management — Create, rename, delete, and switch between multiple spreadsheets
-Auto-save — Changes are saved automatically to local storage
-Responsive Design — Works on desktop and mobile devices
+🔗 Live Demo: [collab-sheet-alpha.vercel.app](https://collab-sheet-alpha.vercel.app)
 
+---
 
-🛠️ Tech Stack
+## ✨ Features
 
-Frontend: HTML5, CSS3, JavaScript (ES6+)
-Styling: Custom CSS with CSS Variables
-Deployment: Vercel
-Storage: LocalStorage for data persistence
+- **Real-time Collaboration**: Watch other users' active cell cursors and see edits appear live without page refreshes.
+- **Row-Level Security (RLS)**: Enforced collaborator roles at the database layer (viewers can read but not write, editors and owners can edit).
+- **Google & Anonymous Auth**: Sign in using your Google account or continue as a Guest using Supabase Anonymous Auth.
+- **Formula Support**: Standard spreadsheet computations (e.g., `=SUM(A1:A10)`, simple cell references, and arithmetic expressions).
+- **Spreadsheet Grid**: 50 rows × 26 columns with keyboard navigation (arrow keys, enter, delete).
+- **Collaborator Management**: Share spreadsheets with other users using their User ID, assigning them Editor or Viewer roles.
+- **Export to CSV**: Download your spreadsheet data directly.
 
-🚀 Getting Started
-Run Locally
+---
 
-  1.Clone the repository
-  git clone https://github.com/anuj-k-bit/collab-sheet.git
-   cd collab-sheet
+## 🛠️ Tech Stack
 
-   2.Open public/index.html in your browser
-   # Or use a local server
-   npx serve public
-   3.Visit http://localhost:3000
+- **Frontend**: Vanilla HTML5, CSS3, JavaScript (ES6 Modules)
+- **Bundler & Server**: Vite
+- **Backend & Persistence**: Supabase
+  - **Database**: PostgreSQL (for tables, foreign keys, constraints)
+  - **Auth**: Google OAuth + Anonymous Guest Sessions
+  - **Realtime**: Postgres Changes Subscription (last-write-wins)
+  - **Presence**: Decoupled cursor tracking and collaborator status broadcasts
 
-📁 Project Structure
-collab-sheet/
-├── public/
-│   └── index.html    # Main application (single-file)
-├── package.json
-├── vercel.json       # Vercel deployment config
-└── README.md
+---
 
-🎯 Roadmap
+## 🚀 Getting Started
 
- Backend integration for real multi-user sync
- More formula functions (AVERAGE, COUNT, IF)
- Export to CSV/Excel
- Dark mode
- Cell formatting (bold, colors, borders)
-
- 📄 License
-MIT License — feel free to use this project for learning or building upon it.
-
-👤 Author
-Anuj Kekre
-
-GitHub: @anuj-k-bit
-Email: anujkekre04@gmail.com
-   
+### 1. Clone & Install
+```bash
+git clone https://github.com/anuj-k-bit/collab-sheet.git
+cd collab-sheet
+npm install
